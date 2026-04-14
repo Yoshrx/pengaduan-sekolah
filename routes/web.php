@@ -49,6 +49,8 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
 
     Route::patch('/pengaduan/{id}/status', [AdminPengaduanController::class, 'updateStatus'])
         ->name('pengaduan.updateStatus');
+        Route::delete('/pengaduan/{id}', [AdminPengaduanController::class,  'destroy'])
+        ->name('pengaduan.destroy');
 });
 
 /*
