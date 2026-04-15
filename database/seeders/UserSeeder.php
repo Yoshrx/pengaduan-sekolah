@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
-    /**
-     * Mengisi tabel users dengan data awal:
-     * - 1 Admin sekolah
-     * - 3 Siswa demo dengan NIS dan kelas
-     */
     public function run(): void
     {
         // Admin
@@ -24,7 +19,7 @@ class UserSeeder extends Seeder
             'role'     => 'admin',
         ]);
 
-        // Siswa - data demo
+        // Siswa
         $siswas = [
             [
                 'name'     => 'Budi Santoso',

@@ -64,7 +64,7 @@ class PengaduanController extends Controller
      */
     public function show($id)
     {
-        // Pastikan siswa hanya bisa lihat pengaduannya sendiri
+        //siswa hanya bisa lihat pengaduannya sendiri
         $pengaduan = Pengaduan::with('kategori')
             ->where('user_id', Auth::id())
             ->findOrFail($id);

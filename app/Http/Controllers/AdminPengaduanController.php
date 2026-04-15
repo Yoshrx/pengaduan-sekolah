@@ -6,6 +6,7 @@ use App\Models\Pengaduan;
 use App\Models\Kategori;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminPengaduanController extends Controller
 {
@@ -30,12 +31,6 @@ class AdminPengaduanController extends Controller
 
         if ($request->filled('tanggal')) {
             $query->whereDate('created_at', $request->tanggal);
-        }
-
-        if ($request->filled('bulan')) {
-            [$tahun, $bulan] = explode('-', $request->bulan);
-            $query->whereMonth('created_at', (int)$bulan)
-                  ->whereYear('created_at', (int)$tahun);
         }
 
         if ($request->filled('search')) {
@@ -81,16 +76,13 @@ class AdminPengaduanController extends Controller
             ->back()
             ->with('success', 'Status dan umpan balik berhasil disimpan.');
     }
-    
-     /**
-     * @param int $id
-     */
+
     public function destroy($id)
     {
         $pengaduan = Pengaduan::findOrFail($id);
 
         if ($pengaduan->foto) {
-            \storage::disk('public')->delete($pengaduan->foto);
+            Storage::disk('public')->delete($pengaduan->foto);
     }
     $pengaduan->delete();
 

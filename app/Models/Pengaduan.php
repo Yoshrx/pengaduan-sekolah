@@ -44,12 +44,6 @@ class Pengaduan extends Model
         return $query->where('kategori_id', $kategoriId);
     }
 
-    public function scopeByBulan($query, int $bulan, int $tahun)
-    {
-        return $query->whereMonth('created_at', $bulan)
-                     ->whereYear('created_at', $tahun);
-    }
-
     /**
      * @return string (class CSS)
      */

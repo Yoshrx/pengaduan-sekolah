@@ -42,10 +42,6 @@
         <label>Tanggal</label>
         <input type="date" name="tanggal" class="form-control" value="<?php echo e(request('tanggal')); ?>">
     </div>
-    <div class="form-group">
-        <label>Bulan</label>
-        <input type="month" name="bulan" class="form-control" value="<?php echo e(request('bulan')); ?>">
-    </div>
     <div style="display:flex; gap:8px; align-items:flex-end;">
         <button type="submit" class="btn btn-primary"> Filter</button>
         <a href="<?php echo e(route('admin.pengaduan.index')); ?>" class="btn" style="background:#6c757d; color:white;">Reset</a>

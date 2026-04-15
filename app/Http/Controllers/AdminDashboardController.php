@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengaduan;
 use App\Models\Kategori;
-use App\Models\User;
 
 class AdminDashboardController extends Controller
 {
